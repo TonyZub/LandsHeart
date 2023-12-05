@@ -1,0 +1,7 @@
+namespace LandsHeart
+{
+	public enum #SCRIPTNAME#
+	{
+		None = 0,
+	}
+}

@@ -1,0 +1,14 @@
+namespace LandsHeart
+{
+	public struct #SCRIPTNAME#
+	{
+		#region Fields
+
+		#endregion
+
+
+		#region Properties
+
+		#endregion
+	}
+}
