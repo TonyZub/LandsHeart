@@ -109,7 +109,7 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _RollDirection: -1
-    - _RollValue: 0.611
+    - _RollValue: 0.934
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SpiralCoefficient: 0.1

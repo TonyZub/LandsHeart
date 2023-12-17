@@ -1,12 +1,13 @@
 using System;
 using UnityEngine;
+
 namespace LandsHeart
 {
 	public sealed class LightController : MonoBehaviour
 	{
 		#region Private Data
 
-		[System.Serializable]
+		[Serializable]
 		private struct LightData
 		{
             [SerializeField] private Color _pointLightColor;
@@ -91,6 +92,12 @@ namespace LandsHeart
                 targetData.DirectionalLightColor, dayTime);
             DirectionalLight.transform.eulerAngles = Vector3.Lerp(startData.DirectionalLightRotation,
                 targetData.DirectionalLightRotation, dayTime);
+        }
+
+        public void SetDayTime(float dayTime)
+        {
+            _dayTime = Mathf.Clamp(dayTime, 0f, 1f);
+            UpdateLight();
         }
 
 		#endregion
