@@ -12,9 +12,9 @@ namespace EditorExtensions
         #region Constants
 
         public const string LOCALES_FILE_NAME = "Locales";
-        public const string LOCALES_SHEET_URL = "https://docs.google.com/spreadsheets/d/1wKZx2NTL3YJHqVBWY-vJFiMGLdbexNawXdhFIuuOVG4/edit#gid=0";
+        public const string LOCALES_SHEET_URL = "https://docs.google.com/spreadsheets/d/1QweSsj1D1-6O3SmqJjWfShmI61212mTVH8l11DzfEuo/edit#gid=0";
         private static string LOCALES_FILE_PATH = "/Resources/Locales.json";
-        private static string LOCALES_API_URL = "https://script.google.com/macros/s/AKfycbw7fStNxiGmc6QhvWiLpjhcvbhvKCdb1g5XXVVjA9P5RGMqzQNBcgHd1WV608Zs52TXzA/exec?request=locales";   
+        private static string LOCALES_API_URL = "https://script.google.com/macros/s/AKfycbxQTr_BgUZIHiIqlp--NG9qpDKXiZdtDfXjs-NuVX9NdUsJvdxnIxrswhrgMQSx8rle/exec?request=locales";   
 
         #endregion
 

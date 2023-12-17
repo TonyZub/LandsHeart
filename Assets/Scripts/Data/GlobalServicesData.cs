@@ -19,37 +19,21 @@ namespace LandsHeart
 
         private static AudioServiceData _audioServiceData;
         private static CursorServiceData _cursorServiceData;
+        private static LocalizationData _localizationData;
 
         #endregion
 
 
         #region Properties
 
-        public static AudioServiceData AudioServiceData
-        {
-            get
-            {
-                if (_audioServiceData == null)
-                {
-                    _audioServiceData = Resources.Load<AudioServiceData>(GLOBAL_SERVICE_DATAS_FOLDER_PATH +
-                        typeof(AudioServiceData).Name);
-                }
-                return _audioServiceData;
-            }
-        }
+        public static AudioServiceData AudioServiceData => _audioServiceData ??= Resources.
+            Load<AudioServiceData>($"{GLOBAL_SERVICE_DATAS_FOLDER_PATH}{typeof(AudioServiceData).Name}");
 
-        public static CursorServiceData CursorServiceData
-        {
-            get
-            {
-                if (_cursorServiceData == null)
-                {
-                    _cursorServiceData = Resources.Load<CursorServiceData>(GLOBAL_SERVICE_DATAS_FOLDER_PATH +
-                        typeof(CursorServiceData).Name);
-                }
-                return _cursorServiceData;
-            }
-        }
+        public static CursorServiceData CursorServiceData => _cursorServiceData ??= Resources.
+            Load<CursorServiceData>($"{GLOBAL_SERVICE_DATAS_FOLDER_PATH}{typeof(CursorServiceData).Name}");
+
+        public static LocalizationData LocalizationData => _localizationData ??= Resources.
+            Load<LocalizationData>($"{GLOBAL_SERVICE_DATAS_FOLDER_PATH}{typeof(LocalizationData).Name}");
 
         #endregion
 
@@ -67,6 +51,12 @@ namespace LandsHeart
         public static void SelectCursorServiceData()
         {
             Selection.activeObject = CursorServiceData;
+        }
+
+        [MenuItem("Data/LocalizationData")]
+        public static void SelectLocalizationData()
+        {
+            Selection.activeObject = LocalizationData;
         }
 #endif
         #endregion
