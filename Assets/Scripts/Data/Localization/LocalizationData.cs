@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using NaughtyAttributes;
 using PixelCrushers.DialogueSystem;
+using System.Collections.Generic;
 
 
 namespace LandsHeart
@@ -22,7 +23,7 @@ namespace LandsHeart
 
         [SerializeField] private string[] _languages;
         [SerializeField] private DialogueDatabase _dialogueDatabase;
-        [SerializeField] private LocalesData _currentLocalesData;
+        [SerializeField] private List<SerializedLocaleData> _currentLocalesData;
         //private Dictionary<string, Dictionary<string, string[]>> _currentLocalesDict;
         private static LocalizationData _instance;
 
@@ -34,11 +35,11 @@ namespace LandsHeart
         public string[] Languages => _languages;
 
         public DialogueDatabase DialogueDatabase => _dialogueDatabase;
-        public LocalesData CurrentLocalesData
+        public List<SerializedLocaleData> CurrentLocalesData
         {
             get
             {
-                if(_currentLocalesData.Data.Length == 0)
+                if(_currentLocalesData == null || _currentLocalesData.Count == 0)
                 {
                     UpdateLocalesDataFromJSON();
                 }
@@ -62,7 +63,18 @@ namespace LandsHeart
         [Button("Update locales")]
         public void UpdateLocalesDataFromJSON()
         {
-            _currentLocalesData = GetLocalesFromJSON();
+            var parsedLocales = GetLocalesFromJSON();
+
+            _currentLocalesData = new List<SerializedLocaleData>();
+            foreach (var locale in parsedLocales.Data)
+            {
+                foreach (var item in locale.Locales)
+                {
+                    _currentLocalesData.
+                        Add(new SerializedLocaleData(item.Key, locale.Part, item.Info, item.Rus, item.Eng, item.Chi));
+                }
+                
+            }
         }
 
         public LocalesData GetLocalesFromJSON()
@@ -75,24 +87,24 @@ namespace LandsHeart
             return JsonUtility.FromJson<LocalesData>(file);
         }
 
-        public LocaleData GetLocaleByKey(string key)
+        public SerializedLocaleData GetLocaleByKey(string key)
         {
-            return CurrentLocalesData.Data.FirstOrDefault(x => x.Key == key);
+            return CurrentLocalesData.FirstOrDefault(x => x.Key == key);
         }
 
         public string[] GetLocaleParts()
         {
-            return CurrentLocalesData.Data.Select(x => x.Part).Distinct().ToArray();
+            return CurrentLocalesData.Select(x => x.Part).Distinct().ToArray();
         }
 
         public string[] GetLocaleKeys(string part)
         {
-            return CurrentLocalesData.Data.Where(x => x.Part.Equals(part)).Select(x => x.Key).ToArray();
+            return CurrentLocalesData.Where(x => x.Part.Equals(part)).Select(x => x.Key).ToArray();
         }
 
         public string[] GetLocaleKeysAll()
         {
-            return CurrentLocalesData.Data.Select(x => x.Key).ToArray();
+            return CurrentLocalesData.Select(x => x.Key).ToArray();
         }
 
         public bool TryGetLocalizedValueByKey(string key, int languageIndex, out string localizedValue)

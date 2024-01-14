@@ -12,8 +12,87 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb5009deec6823f43862c48494e054d5, type: 3}
   m_Name: LocalizationData
   m_EditorClassIdentifier: 
-  _languages: []
+  _languages:
+  - ru
+  - en
+  - chi
   _dialogueDatabase: {fileID: 0}
   _currentLocalesData:
-    Meta: 
-    Data: []
+  - Key: M1
+    Part: "\u0413\u043B\u0430\u0432\u043D\u043E\u0435 \u043C\u0435\u043D\u044E"
+    Info: "\u043D\u043E\u0432\u0430\u044F \u0438\u0433\u0440\u0430"
+    Rus: "\u041D\u0430\u0447\u0430\u0442\u044C \u043D\u043E\u0432\u0443\u044E \u0438\u0433\u0440\u0443"
+    Eng: '-'
+    Chi: '-'
+  - Key: M2
+    Part: "\u0413\u043B\u0430\u0432\u043D\u043E\u0435 \u043C\u0435\u043D\u044E"
+    Info: "\u043F\u0440\u043E\u0434\u043E\u043B\u0436\u0430\u0442\u044C"
+    Rus: "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C"
+    Eng: '-'
+    Chi: '-'
+  - Key: M3
+    Part: "\u0413\u043B\u0430\u0432\u043D\u043E\u0435 \u043C\u0435\u043D\u044E"
+    Info: "\u0432\u044B\u0445\u043E\u0434"
+    Rus: "\u0412\u044B\u0445\u043E\u0434"
+    Eng: '-'
+    Chi: '-'
+  - Key: FS_1
+    Part: "\u041F\u0440\u0435\u0444\u0438\u043A\u0441\u044B \u0444\u0430\u043C\u0438\u043B\u0438\u0439"
+    Info: '-'
+    Rus: "\u0422\u0438\u043C"
+    Eng: '-'
+    Chi: '-'
+  - Key: FS_2
+    Part: "\u041F\u0440\u0435\u0444\u0438\u043A\u0441\u044B \u0444\u0430\u043C\u0438\u043B\u0438\u0439"
+    Info: '-'
+    Rus: "\u0417\u0443\u0431"
+    Eng: '-'
+    Chi: '-'
+  - Key: FS_3
+    Part: "\u041F\u0440\u0435\u0444\u0438\u043A\u0441\u044B \u0444\u0430\u043C\u0438\u043B\u0438\u0439"
+    Info: '-'
+    Rus: "\u0411\u0443\u0440\u043D\u0430\u0448"
+    Eng: '-'
+    Chi: '-'
+  - Key: FS_4
+    Part: "\u041F\u0440\u0435\u0444\u0438\u043A\u0441\u044B \u0444\u0430\u043C\u0438\u043B\u0438\u0439"
+    Info: '-'
+    Rus: "\u0417\u0430\u0439\u043A"
+    Eng: '-'
+    Chi: '-'
+  - Key: FS_5
+    Part: "\u041F\u0440\u0435\u0444\u0438\u043A\u0441\u044B \u0444\u0430\u043C\u0438\u043B\u0438\u0439"
+    Info: '-'
+    Rus: "\u0411\u043E\u0436\u0435\u043D"
+    Eng: '-'
+    Chi: '-'
+  - Key: FS_6
+    Part: "\u041F\u0440\u0435\u0444\u0438\u043A\u0441\u044B \u0444\u0430\u043C\u0438\u043B\u0438\u0439"
+    Info: '-'
+    Rus: "\u0420\u0430\u0441"
+    Eng: '-'
+    Chi: '-'
+  - Key: FS_7
+    Part: "\u041F\u0440\u0435\u0444\u0438\u043A\u0441\u044B \u0444\u0430\u043C\u0438\u043B\u0438\u0439"
+    Info: '-'
+    Rus: "\u0410\u0440\u0442\u0430\u043C\u043E\u0448"
+    Eng: '-'
+    Chi: '-'
+  - Key: FS_8
+    Part: "\u041F\u0440\u0435\u0444\u0438\u043A\u0441\u044B \u0444\u0430\u043C\u0438\u043B\u0438\u0439"
+    Info: '-'
+    Rus: "\u0420\u0435\u0432\u0435\u043D"
+    Eng: '-'
+    Chi: '-'
+  - Key: FS_9
+    Part: "\u041F\u0440\u0435\u0444\u0438\u043A\u0441\u044B \u0444\u0430\u043C\u0438\u043B\u0438\u0439"
+    Info: '-'
+    Rus: "\u0428\u0430\u043F\u0438\u0440\u0435\u043D"
+    Eng: '-'
+    Chi: '-'
+  - Key: FS_10
+    Part: "\u041F\u0440\u0435\u0444\u0438\u043A\u0441\u044B \u0444\u0430\u043C\u0438\u043B\u0438\u0439"
+    Info: '-'
+    Rus: "\u0427\u0430\u043B\u0435\u043D"
+    Eng: '-'
+    Chi: '-'

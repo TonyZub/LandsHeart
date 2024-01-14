@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace LandsHeart
 {
-	public sealed class GoldResource
+	public sealed class DialogueService
 	{
 		#region Fields
 

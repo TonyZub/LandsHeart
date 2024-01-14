@@ -20,6 +20,8 @@ namespace LandsHeart
         protected override void OnSceneLoadingComplete()
         {
             GlobalContext.Instance.GlobalServices.LocalizationService.UpdateDialogueSystemLanguage();
+            GlobalContext.Instance.RegisterDependency(new GameplayServices(), GlobalContext.DisposableTypes.Local);
+            GlobalContext.Instance.RegisterDependency(new GameCycleController(), GlobalContext.DisposableTypes.Global);
             //GlobalContext.Instance.GetDependency<GlobalServices>().AudioService.ChangeMusic(MusicSoundNames.Lvl_1_music,
             //    SCENE_MUSIC_SWITCH_TIME);
             base.OnSceneLoadingComplete();

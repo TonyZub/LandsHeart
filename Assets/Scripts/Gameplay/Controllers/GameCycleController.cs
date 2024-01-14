@@ -1,22 +1,44 @@
+using System;
 using UnityEngine;
 
 
 namespace LandsHeart
 {
-	public sealed class GameCycleController
+	public sealed class GameCycleController : IDisposable
 	{
-		#region Fields
-
-		#endregion
+        #region Fields
 
 
-		#region Properties
-
-		#endregion
+        #endregion
 
 
-		#region Methods
+        #region Properties
 
-		#endregion
-	}
+        #endregion
+
+
+        #region Constuctor
+
+        public GameCycleController()
+        {
+
+        }
+
+        #endregion
+
+
+        #region IDisposable
+
+        public void Dispose()
+        {
+            //TODO
+        }
+
+        #endregion
+
+
+        #region Methods
+
+        #endregion
+    }
 }

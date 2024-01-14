@@ -12,3 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ed59067dde3ced469ca4d8290934f7d, type: 3}
   m_Name: StartResourcesData
   m_EditorClassIdentifier: 
+  _baseMaxGold: 0
+  _baseMaxFood: 0
+  _baseMaxWood: 0
+  _baseMaxOre: 0
+  _baseMaxPeople: 0
+  _startGold: 0
+  _startFood: 0
+  _startWood: 0
+  _startOre: 0
+  _startPeople: 0

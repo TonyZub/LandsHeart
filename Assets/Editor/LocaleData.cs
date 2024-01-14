@@ -8,15 +8,24 @@ namespace EditorExtensions
     public struct LocaleData
     {
         [SerializeField] public string Key;
-        [SerializeField] public string Part;
         [SerializeField] public string Info;
         [SerializeField] public string Rus;
         [SerializeField] public string Eng;
+        [SerializeField] public string Chi;
 
         public string[] Array => new string[5]
         {
-                Key, Part, Info, Rus, Eng
+            Key, Info, Rus, Eng, Chi
         };
+
+        public LocaleData(string key, string info, string rus, string eng, string chi)
+        {
+            Key = key;
+            Info = info;
+            Rus = rus;
+            Eng = eng;
+            Chi = chi;
+        }
 
         public string GetLocaleByLanguageIndex(int index)
         {
@@ -29,6 +38,9 @@ namespace EditorExtensions
                 case 1:
                     locale = Eng;
                     break;
+                case 2:
+                    locale = Chi;
+                    break;
                 default:
                     break;
             }
@@ -37,7 +49,7 @@ namespace EditorExtensions
 
         public override string ToString()
         {
-            return $"{Key} {Part} {Info} {Rus} {Eng}";
+            return $"{Key} {Info} {Rus} {Eng} {Chi}";
         }
     }
 }

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEditor;
 using System.Net.Http;
 using System.IO;
 using System.Text;
@@ -25,8 +24,9 @@ namespace EditorExtensions
         {
             using var client = new HttpClient();
             var content = await client.GetStringAsync(LOCALES_API_URL);
+            Debug.Log(content);
             var parsedData = ParseJsonLocales(content);
-
+            Debug.Log(parsedData);
             if(doIgnoreMeta || GetLocalesFromLocal().Meta != parsedData.Meta)
             {
                 SaveLocalesToFile(parsedData);

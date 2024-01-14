@@ -1,22 +1,21 @@
-using UnityEngine;
-
-
 namespace LandsHeart
 {
-	public sealed class Building
+	public abstract class Building
 	{
-		#region Fields
+        #region Properties
 
-		#endregion
+        public virtual BuildingsNames BuildingName { get; private set; } = BuildingsNames.None;
 
-
-		#region Properties
-
-		#endregion
+        #endregion
 
 
-		#region Methods
+        #region Methods
 
-		#endregion
-	}
+        public virtual void OnCycleEnd()
+        {
+            //TODO
+        }
+
+        #endregion
+    }
 }
