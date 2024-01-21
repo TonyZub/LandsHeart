@@ -23,6 +23,10 @@ namespace LandsHeart
         private readonly FoodResource _food;
         private readonly WoodResource _wood;
         private readonly OreResource _ore;
+        private readonly RockResource _rock;
+        private readonly MetalResource _metal;
+        private readonly FabricResource _fabric;
+        private readonly PaperResource _paper;
 
         private List<Human> _people;
 
@@ -35,6 +39,10 @@ namespace LandsHeart
         public FoodResource Food => _food;
         public WoodResource Wood => _wood;
         public OreResource Ore => _ore;
+        public RockResource Rock => _rock;
+        public MetalResource Metal => _metal;
+        public FabricResource Fabric => _fabric;
+        public PaperResource Paper => _paper;
         public Human[] People => _people.ToArray();
 
         #endregion
@@ -48,6 +56,10 @@ namespace LandsHeart
             _food = new FoodResource(Data.StartResourcesData.StartFood);
             _wood = new WoodResource(Data.StartResourcesData.StartWood);
             _ore = new OreResource(Data.StartResourcesData.StartOre);
+            _rock = new RockResource(Data.StartResourcesData.StartRock);
+            _metal = new MetalResource(Data.StartResourcesData.StartMetal);
+            _fabric = new FabricResource(Data.StartResourcesData.StartFabric);
+            _paper = new PaperResource(Data.StartResourcesData.StartPaper);
             CreatePeople();
             SubscribeEvents();
         }
@@ -82,6 +94,10 @@ namespace LandsHeart
             _food.AmountChanged += OnResourceAmountChanged;
             _wood.AmountChanged += OnResourceAmountChanged;
             _ore.AmountChanged += OnResourceAmountChanged;
+            _rock.AmountChanged += OnResourceAmountChanged;
+            _metal.AmountChanged += OnResourceAmountChanged;
+            _fabric.AmountChanged += OnResourceAmountChanged;
+            _paper.AmountChanged += OnResourceAmountChanged;
         }
 
         private void UnsubscribeEvents()
@@ -90,6 +106,10 @@ namespace LandsHeart
             _food.AmountChanged -= OnResourceAmountChanged;
             _wood.AmountChanged -= OnResourceAmountChanged;
             _ore.AmountChanged -= OnResourceAmountChanged;
+            _rock.AmountChanged -= OnResourceAmountChanged;
+            _metal.AmountChanged -= OnResourceAmountChanged;
+            _fabric.AmountChanged -= OnResourceAmountChanged;
+            _paper.AmountChanged -= OnResourceAmountChanged;
         }
 
         private void OnResourceAmountChanged(int difference, IResource resource)
@@ -110,6 +130,14 @@ namespace LandsHeart
         public void RemoveWood(int amount) => Wood.Decrease(amount);
         public void AddOre(int amount) => Ore.Increase(amount);
         public void RemoveOre(int amount) => Ore.Increase(amount);
+        public void AddRock(int amount) => Rock.Increase(amount);
+        public void RemoveRock(int amount) => Rock.Decrease(amount);
+        public void AddMetal(int amount) => Metal.Increase(amount);
+        public void RemoveMetal(int amount) => Metal.Decrease(amount);
+        public void AddFabric(int amount) => Fabric.Increase(amount);   
+        public void RemoveFabric(int amount) => Fabric.Decrease(amount);    
+        public void AddPaper(int amount) => Paper.Increase(amount);
+        public void RemovePaper(int amount) => Paper.Decrease(amount);
         public void AddPeople(int amount)
         {
             for (int i = 0; i < amount; i++)
@@ -127,6 +155,19 @@ namespace LandsHeart
                 _people.RemoveAt(humanIndex);
             }
         }
+
+        public IResource GetResource(ResourcesTypes type) => type switch
+        {
+            ResourcesTypes.Gold => Gold,
+            ResourcesTypes.Food => Food,
+            ResourcesTypes.Wood => Wood,
+            ResourcesTypes.Ore => Ore,
+            ResourcesTypes.Rock => Rock,
+            ResourcesTypes.Metal => Metal,
+            ResourcesTypes.Fabric => Fabric,
+            ResourcesTypes.Paper => Paper,
+            _ => throw new ArgumentException(nameof(type), $"Not expected resource name: {type}"),
+        };
 
         #endregion
     }

@@ -6,6 +6,7 @@ namespace LandsHeart
 	{
         #region Fields
 
+        private CameraService _cameraService;
         private DialogueService _dialogueService;
         private ResourcesService _resourcesService;
 
@@ -14,6 +15,7 @@ namespace LandsHeart
 
         #region Properties
 
+        public CameraService CameraService => _cameraService;
         public DialogueService DialogueService => _dialogueService;
         public ResourcesService ResourcesService => _resourcesService;
 
@@ -24,6 +26,7 @@ namespace LandsHeart
 
         public GameplayServices()
         {
+            _cameraService = new CameraService(ObjectFinder.FindObjectOfType<CameraHolder>(true));
             _dialogueService = new DialogueService();
             _resourcesService = new ResourcesService();
         }

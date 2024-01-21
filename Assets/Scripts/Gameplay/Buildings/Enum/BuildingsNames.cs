@@ -23,5 +23,8 @@ namespace LandsHeart
         Smithy				= 18,
         PaperManufactory	= 19,
         Jeweler				= 20,
+		Hospital			= 21,
+		SmallHospital		= 22,
+		Ambulatorium		= 23,
     }
 }

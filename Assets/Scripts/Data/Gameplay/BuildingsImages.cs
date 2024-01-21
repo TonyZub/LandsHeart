@@ -14,9 +14,11 @@ namespace LandsHeart
         {
             [SerializeField] private BuildingsNames _buildingName;
             [SerializeField] private Sprite _buildingSprite;
+            [SerializeField] private GameObject _buildingPrefab;
 
             public BuildingsNames BuildingName => _buildingName;
             public Sprite BuildingSprite => _buildingSprite;
+            public GameObject BuildingPrefab => _buildingPrefab;
         }
 
         #endregion
