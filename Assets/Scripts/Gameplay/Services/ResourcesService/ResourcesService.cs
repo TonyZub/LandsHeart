@@ -84,7 +84,7 @@ namespace LandsHeart
             _people = new List<Human>();
             for (int i = 0; i < Data.StartResourcesData.StartPeople; i++)
             {
-                _people.Add(HumanFactory.MakeHuman());
+                _people.Add(HumanFactory.CreateHuman());
             }
         }
 
@@ -142,7 +142,7 @@ namespace LandsHeart
         {
             for (int i = 0; i < amount; i++)
             {
-                _people.Add(HumanFactory.MakeHuman());
+                _people.Add(HumanFactory.CreateHuman());
                 HumanAdded?.Invoke(_people.LastObject());
             }
         }

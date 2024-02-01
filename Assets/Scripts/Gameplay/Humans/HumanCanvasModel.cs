@@ -75,7 +75,11 @@ namespace LandsHeart
             {
                 Destroy(_featuresParent.GetChild(i));
             }
-            //TODO
+            for(int i = 0; i < _humanModel.Human.Features.Length; i++)
+            {
+                GlobalContext.Instance.GetDependency<FeatureFactory>().
+                    CreateFeatureCanvasModel(_humanModel.Human.Features[i], _featuresParent);
+            }
         }
 
         private void CreateItems()
@@ -84,7 +88,11 @@ namespace LandsHeart
             {
                 Destroy(_featuresParent.GetChild(i));
             }
-            //TODO
+            for (int i = 0; i < _humanModel.Human.Items.Length; i++)
+            {
+                GlobalContext.Instance.GetDependency<ItemFactory>().
+                    CreateItemCanvasModel(_humanModel.Human.Items[i], _itemsParent);
+            }
         }
 
         #endregion

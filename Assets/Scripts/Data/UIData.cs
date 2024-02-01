@@ -9,6 +9,8 @@ namespace LandsHeart
 		#region Fields
 
 		[SerializeField] private SceneLoadingCanvasModel _sceneLoadingCanvasModel;
+		[SerializeField] private FeatureCanvasModel _featureCanvasPrefab;
+		[SerializeField] private ItemCanvasModel _itemCanvasPrefab;
 
 		#endregion
 
@@ -16,6 +18,8 @@ namespace LandsHeart
 		#region Properties
 
 		public SceneLoadingCanvasModel SceneLoadingCanvasModel => _sceneLoadingCanvasModel;
+		public FeatureCanvasModel FeatureCanvasPrefab => _featureCanvasPrefab;
+		public ItemCanvasModel ItemCanvasModel => _itemCanvasPrefab;
 
 		#endregion
 	}

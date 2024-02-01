@@ -18,6 +18,8 @@ namespace LandsHeart
         private static HumanImages _humanImages;
         private static HumanStatusesColors _humanStatusesColors;
         private static Buildings _buildings;
+        private static Features _features;
+        private static Items _items;
         private static StartResourcesData _startResourcesData;
 
         #endregion
@@ -33,6 +35,12 @@ namespace LandsHeart
 
         public static Buildings Buildings => _buildings ??= Resources.
             Load<Buildings>($"{GAMEPLAY_DATAS_FOLDER_PATH}{typeof(Buildings).Name}");
+
+        public static Features Features => _features ??= Resources.
+            Load<Features>($"{GAMEPLAY_DATAS_FOLDER_PATH}{typeof(Features).Name}");
+
+        public static Items Items => _items ??= Resources.
+            Load<Items>($"{GAMEPLAY_DATAS_FOLDER_PATH}{typeof(Items).Name}");
 
         public static StartResourcesData StartResourcesData => _startResourcesData ??= Resources.
             Load<StartResourcesData>($"{GAMEPLAY_DATAS_FOLDER_PATH}{typeof(StartResourcesData).Name}");
@@ -59,6 +67,18 @@ namespace LandsHeart
         public static void SelectBuildings()
         {
             Selection.activeObject = Buildings;
+        }
+
+        [MenuItem("Data/Gameplay/Features")]
+        public static void SelectFeatures()
+        {
+            Selection.activeObject = Features;
+        }
+
+        [MenuItem("Data/Gameplay/Items")]
+        public static void SelectItems()
+        {
+            Selection.activeObject = Items;
         }
 
         [MenuItem("Data/Gameplay/StartResourcesData")]
