@@ -12,4 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a571d6c58e0778a4985f34ea0318a0f3, type: 3}
   m_Name: Features
   m_EditorClassIdentifier: 
-  _features: []
+  _features:
+  - _featureName: 0
+    _featureSprite: {fileID: 0}
+    _featureNameLocalized:
+      _localePart: "\u0413\u043B\u0430\u0432\u043D\u043E\u0435 \u043C\u0435\u043D\u044E"
+      _localeKey: M1
+      _localeDescription: 
+    _featureDescription:
+      _localePart: "\u0413\u043B\u0430\u0432\u043D\u043E\u0435 \u043C\u0435\u043D\u044E"
+      _localeKey: M1
+      _localeDescription: 

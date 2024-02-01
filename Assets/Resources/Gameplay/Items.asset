@@ -12,4 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8f85c3219179348ae2529a8730489d, type: 3}
   m_Name: Items
   m_EditorClassIdentifier: 
-  _items: []
+  _items:
+  - _itemName: 0
+    _itemSprite: {fileID: 0}
+    _itemNameLocalized:
+      _localePart: 
+      _localeKey: 
+      _localeDescription: 
+    _itemDescription:
+      _localePart: 
+      _localeKey: 
+      _localeDescription: 
