@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac34c1435a056024998f1ebad5629c79, type: 3}
-  m_Name: BuildingsImages
+  m_Name: Buildings
   m_EditorClassIdentifier: 
-  _buildingNames:
-  - _buildingName: 4
+  _buildings:
+  - _buildingName: 3
     _buildingSprite: {fileID: 0}
-  - _buildingName: 0
-    _buildingSprite: {fileID: 0}
+    _buildingPrefab: {fileID: 0}
