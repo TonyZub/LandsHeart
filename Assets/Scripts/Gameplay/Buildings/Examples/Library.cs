@@ -1,23 +1,12 @@
-using UnityEngine;
-
-
 namespace LandsHeart
 {
 	public sealed class Library : Building
 	{
-        #region Fields
+        #region Constructor
 
-        #endregion
-
-
-        #region Properties
-
-        public override BuildingsNames BuildingName => BuildingsNames.Library;
-
-        #endregion
-
-
-        #region Methods
+        public Library(BuildingData buildingData) : base(buildingData)
+        {
+        }
 
         #endregion
     }

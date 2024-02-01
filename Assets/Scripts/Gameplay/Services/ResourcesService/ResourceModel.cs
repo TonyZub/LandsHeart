@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace LandsHeart
 {
-	public sealed class ResourceModel : MonoBehaviour
+	public sealed class ResourceModel : InteractiveObjectModel
 	{
 		#region Fields
 
@@ -39,18 +39,6 @@ namespace LandsHeart
             PresetResourceAmounts();
         }
 
-        private void OnMouseEnter()
-        {
-            Canvas.gameObject.SetActive(true);
-            IsCanvasShown = true;
-        }
-
-        private void OnMouseExit()
-        {
-            Canvas.gameObject.SetActive(false);
-            IsCanvasShown = false;
-        }
-
         private void Update()
         {
             if (!IsCanvasShown) return;
@@ -66,6 +54,20 @@ namespace LandsHeart
 
 
         #region Methods
+
+        protected override void OnMouseEntered()
+        {
+            base.OnMouseEntered();
+            Canvas.gameObject.SetActive(true);
+            IsCanvasShown = true;
+        }
+
+        protected override void OnMouseExited()
+        {
+            base.OnMouseExited();
+            Canvas.gameObject.SetActive(false);
+            IsCanvasShown = false;
+        }
 
         private void PresetResourceAmounts()
         {

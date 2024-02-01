@@ -18,6 +18,8 @@ namespace LandsHeart
 
         #region Fields
 
+        [SerializeField] private LoggingTypes _loggingTypesEnabled;
+
         private GlobalContext _globalContext;
 
         #endregion
@@ -25,6 +27,7 @@ namespace LandsHeart
 
         #region Properties
 
+        public LoggingTypes LoggingTypesEnabled => _loggingTypesEnabled;
         public GlobalContext GlobalContext => _globalContext;
 
         #endregion

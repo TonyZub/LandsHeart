@@ -8,6 +8,7 @@ namespace LandsHeart
 	{
         #region Fields
 
+        [Header("Base amounts")]
         [SerializeField] private int _baseMaxGold;
         [SerializeField] private int _baseMaxFood;
         [SerializeField] private int _baseMaxWood;
@@ -18,6 +19,7 @@ namespace LandsHeart
         [SerializeField] private int _basePaper;
         [SerializeField] private int _baseMaxPeople;
 
+        [Header("Max amounts")]
         [SerializeField] private int _startGold;
         [SerializeField] private int _startFood;
         [SerializeField] private int _startWood;

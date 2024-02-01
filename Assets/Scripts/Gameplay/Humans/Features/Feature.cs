@@ -1,22 +1,43 @@
-using UnityEngine;
+using System;
 
 
 namespace LandsHeart
 {
-	public sealed class Feature
+	[Serializable]
+	public abstract class Feature : ICycleEnd
 	{
-		#region Fields
+        #region Fields
 
-		#endregion
+        private readonly FeatureData _featureData;
 
-
-		#region Properties
-
-		#endregion
+        #endregion
 
 
-		#region Methods
+        #region Properties
 
-		#endregion
-	}
+        public FeatureData FeatureData => _featureData;
+
+        #endregion
+
+
+        #region Constructor
+
+        public Feature(FeatureData featureData)
+        {
+            _featureData = featureData;
+        }
+
+        #endregion
+
+
+        #region ICycleEnd
+
+        public virtual void OnCycleEnd()
+        {
+            MessageLogger.Log($"Feature {FeatureData.FeatureName} ended cycle");
+            //TODO
+        }
+
+        #endregion
+    }
 }

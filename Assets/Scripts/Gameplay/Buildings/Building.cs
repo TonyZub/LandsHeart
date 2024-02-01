@@ -1,18 +1,36 @@
 namespace LandsHeart
 {
-	public abstract class Building
+	public abstract class Building : ICycleEnd
 	{
-        #region Properties
+        #region Fields
 
-        public virtual BuildingsNames BuildingName { get; private set; } = BuildingsNames.None;
+        private readonly BuildingData _buildingData;
 
         #endregion
 
 
-        #region Methods
+        #region Properties
+
+        public BuildingData BuildingData => _buildingData;
+
+        #endregion
+
+
+        #region Constructor
+
+        public Building(BuildingData buildingData)
+        {
+            _buildingData = buildingData;
+        }
+
+        #endregion
+
+
+        #region ICycleEnd
 
         public virtual void OnCycleEnd()
         {
+            MessageLogger.Log($"Building {BuildingData.BuildingName} ended cycle");
             //TODO
         }
 

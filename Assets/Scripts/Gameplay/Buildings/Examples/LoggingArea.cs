@@ -1,23 +1,12 @@
-using UnityEngine;
-
-
 namespace LandsHeart
 {
 	public sealed class LoggingArea : Building
 	{
-        #region Fields
+        #region Constructor
 
-        #endregion
-
-
-        #region Properties
-
-        public override BuildingsNames BuildingName => BuildingsNames.LoggingArea;
-
-        #endregion
-
-
-        #region Methods
+        public LoggingArea(BuildingData buildingData) : base(buildingData)
+        {
+        }
 
         #endregion
     }

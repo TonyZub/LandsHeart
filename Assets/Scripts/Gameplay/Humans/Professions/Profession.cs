@@ -7,15 +7,14 @@ namespace LandsHeart
 	{
 		#region Fields
 
+		[SerializeField] private ProfessionsNames _professionName;
+
 		#endregion
 
 
 		#region Properties
 
-		#endregion
-
-
-		#region Methods
+		public ProfessionsNames ProfessionName => _professionName;
 
 		#endregion
 	}

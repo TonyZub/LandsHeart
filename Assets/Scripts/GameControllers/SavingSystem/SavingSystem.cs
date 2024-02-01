@@ -45,7 +45,7 @@ namespace LandsHeart
 
         static SavingSystem()
         {
-            LoadSaveDatas();
+            if(Application.isPlaying) LoadSaveDatas();
         }
 
         #endregion
@@ -59,14 +59,14 @@ namespace LandsHeart
             {
                 _currentSaveDatas = JsonUtility.FromJson<DataSaveList>(PlayerPrefs.GetString(SAVE_DATA_KEY));
                 HasSaveData = true;
-                Debug.Log($"Data was preloaded");
+                MessageLogger.Log($"Data was preloaded");
             }
             else
             {
                 _currentSaveDatas = new DataSaveList(new List<SaveData>() { 
                     new SaveData(SceneStateMachine.Instance.CurrentSceneState.StateName)});
                 HasSaveData = false;
-                Debug.Log("No data was preloaded");
+                MessageLogger.Log("No data was preloaded");
             }
             CurrentSaveData = _currentSaveDatas.SaveDataList[_currentSaveDatas.SaveDataList.Count - 1];
         }
@@ -75,7 +75,7 @@ namespace LandsHeart
         {
             var json = JsonUtility.ToJson(_currentSaveDatas);
             PlayerPrefs.SetString(SAVE_DATA_KEY, json);
-            Debug.Log($"Data was saved: {json}");
+            MessageLogger.Log($"Data was saved: {json}");
             LoadSaveDatas();
         }
 
@@ -99,14 +99,14 @@ namespace LandsHeart
 
         public static void SaveNewData(SaveData data)
         {
-            Debug.Log($"Saving new data: {JsonUtility.ToJson(data)}");
+            MessageLogger.Log($"Saving new data: {JsonUtility.ToJson(data)}");
             _currentSaveDatas.SaveDataList.Add(data);
             SaveSaveDatas();
         }
 
         public static void RewriteSaveData(SaveData data, byte index)
         {
-            Debug.Log($"Rewriting data with index {index}");
+            MessageLogger.Log($"Rewriting data with index {index}");
             if(index <= _currentSaveDatas.SaveDataList.Count)
             {
                 _currentSaveDatas.SaveDataList[index] = data;
@@ -120,7 +120,7 @@ namespace LandsHeart
 
         public static void DeleteSaveData(byte index)
         {
-            Debug.Log($"Deleting data with index {index}");
+            MessageLogger.Log($"Deleting data with index {index}");
             _currentSaveDatas.SaveDataList.RemoveAt(index);
             SaveSaveDatas();
         }
@@ -130,7 +130,7 @@ namespace LandsHeart
             _currentSaveDatas = default;
             PlayerPrefs.SetString(SAVE_DATA_KEY, string.Empty);
             PlayerPrefs.DeleteKey(SAVE_DATA_KEY);
-            Debug.Log("Save data cleared");
+            MessageLogger.Log("Save data cleared");
         }
 
         #endregion

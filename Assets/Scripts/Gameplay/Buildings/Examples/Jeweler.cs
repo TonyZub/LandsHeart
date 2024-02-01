@@ -1,23 +1,12 @@
-using UnityEngine;
-
-
 namespace LandsHeart
 {
 	public sealed class Jeweler : Building
 	{
-        #region Fields
+        #region Constructor
 
-        #endregion
-
-
-        #region Properties
-
-        public override BuildingsNames BuildingName => BuildingsNames.Jeweler;
-
-        #endregion
-
-
-        #region Methods
+        public Jeweler(BuildingData buildingData) : base(buildingData)
+        {
+        }
 
         #endregion
     }

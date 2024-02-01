@@ -1,23 +1,12 @@
-using UnityEngine;
-
-
 namespace LandsHeart
 {
 	public sealed class Mine : Building
 	{
-        #region Fields
+        #region Constructor
 
-        #endregion
-
-
-        #region Properties
-
-        public override BuildingsNames BuildingName => BuildingsNames.Mine;
-
-        #endregion
-
-
-        #region Methods
+        public Mine(BuildingData buildingData) : base(buildingData)
+        {
+        }
 
         #endregion
     }

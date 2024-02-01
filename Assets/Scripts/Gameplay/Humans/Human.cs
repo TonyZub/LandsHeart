@@ -9,11 +9,13 @@ namespace LandsHeart
 	{
         #region Fields
 
+        private readonly HumanGenders _gender;
         private readonly Profession _profession;
         private readonly string _name;
 		private readonly string _surname;
         private readonly string _prehistory;
 		private readonly int _imageIndex;
+		private readonly int _age;
 
 		private List<Feature> _features;
 		private List<Item> _items;
@@ -25,7 +27,8 @@ namespace LandsHeart
 
 		#region Properties
 
-		public HumanStatus Status => _status;
+		public HumanGenders Gender => _gender;
+        public HumanStatus Status => _status;
 		public Feature[] Features => _features.ToArray();
 		public Item[] Items => _items.ToArray();
 		public Profession Profession => _profession;
@@ -33,15 +36,17 @@ namespace LandsHeart
 		public string Surname => _surname;
 		public string Prehistory => _prehistory;
 		public int ImageIndex => _imageIndex;
+		public int Age => _age;
 
         #endregion
 
 
         #region Constructor
 
-		public Human(string name, string surname, string prehistory, Profession profession, List<Feature> features, 
-			List<Item> items, HumanStatus status, int imageIndex)
+		public Human(HumanGenders gender, string name, string surname, string prehistory, Profession profession, List<Feature> features, 
+			List<Item> items, HumanStatus status, int imageIndex, int age)
 		{
+			_gender = gender;
 			_name = name;
 			_surname = surname;
 			_prehistory = prehistory;
@@ -50,14 +55,8 @@ namespace LandsHeart
 			_items = items;
 			_status = status;
 			_imageIndex = imageIndex;
+			_age = age;
         }
-
-        #endregion
-
-
-        #region Methods
-
-
 
         #endregion
     }

@@ -16,7 +16,7 @@ namespace LandsHeart
 		private static void SelectLocale(int localeIndex)
         {
 			PlayerPrefs.SetInt(PLAYER_PREFS_SELECTED_LOCALE_KEY, localeIndex);
-			Debug.Log($"Selected {LocalizationData.Instance.Languages[localeIndex]} language");
+			MessageLogger.Log($"Selected {LocalizationData.Instance.Languages[localeIndex]} language");
 		}
 	}
 }

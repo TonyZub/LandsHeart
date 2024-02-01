@@ -1,23 +1,12 @@
-using UnityEngine;
-
-
 namespace LandsHeart
 {
 	public sealed class FarmingField : Building
 	{
-        #region Fields
+        #region Constructor
 
-        #endregion
-
-
-        #region Properties
-
-        public override BuildingsNames BuildingName => BuildingsNames.FarmingField;
-
-        #endregion
-
-
-        #region Methods
+        public FarmingField(BuildingData buildingData) : base(buildingData)
+        {
+        }
 
         #endregion
     }

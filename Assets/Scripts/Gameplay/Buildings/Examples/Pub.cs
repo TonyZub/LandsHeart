@@ -1,23 +1,12 @@
-using UnityEngine;
-
-
 namespace LandsHeart
 {
 	public sealed class Pub : Building
 	{
-        #region Fields
+        #region Constructor
 
-        #endregion
-
-
-        #region Properties
-
-        public override BuildingsNames BuildingName => BuildingsNames.Pub;
-
-        #endregion
-
-
-        #region Methods
+        public Pub(BuildingData buildingData) : base(buildingData)
+        {
+        }
 
         #endregion
     }

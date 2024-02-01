@@ -1,23 +1,12 @@
-using UnityEngine;
-
-
 namespace LandsHeart
 {
 	public sealed class TailorsShop : Building
 	{
-        #region Fields
+        #region Constructor
 
-        #endregion
-
-
-        #region Properties
-
-        public override BuildingsNames BuildingName => BuildingsNames.TailorsShop;
-
-        #endregion
-
-
-        #region Methods
+        public TailorsShop(BuildingData buildingData) : base(buildingData)
+        {
+        }
 
         #endregion
     }

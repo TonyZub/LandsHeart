@@ -1,23 +1,12 @@
-using UnityEngine;
-
-
 namespace LandsHeart
 {
 	public sealed class WatchTower : Building
 	{
-        #region Fields
+        #region Constructor
 
-        #endregion
-
-
-        #region Properties
-
-        public override BuildingsNames BuildingName => BuildingsNames.WatchTower;
-
-        #endregion
-
-
-        #region Methods
+        public WatchTower(BuildingData buildingData) : base(buildingData)
+        {
+        }
 
         #endregion
     }

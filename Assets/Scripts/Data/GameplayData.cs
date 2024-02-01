@@ -16,7 +16,8 @@ namespace LandsHeart
         #region Fields
 
         private static HumanImages _humanImages;
-        private static BuildingsImages _buildingImages;
+        private static HumanStatusesColors _humanStatusesColors;
+        private static Buildings _buildings;
         private static StartResourcesData _startResourcesData;
 
         #endregion
@@ -27,8 +28,11 @@ namespace LandsHeart
         public static HumanImages HumanImages => _humanImages ??= Resources.
             Load<HumanImages>($"{GAMEPLAY_DATAS_FOLDER_PATH}{typeof(HumanImages).Name}");
 
-        public static BuildingsImages BuildingImages => _buildingImages ??= Resources.
-            Load<BuildingsImages>($"{GAMEPLAY_DATAS_FOLDER_PATH}{typeof(BuildingsImages).Name}");
+        public static HumanStatusesColors HumanStatusesColors => _humanStatusesColors ??= Resources.
+            Load<HumanStatusesColors>($"{GAMEPLAY_DATAS_FOLDER_PATH}{typeof(HumanStatusesColors).Name}");
+
+        public static Buildings Buildings => _buildings ??= Resources.
+            Load<Buildings>($"{GAMEPLAY_DATAS_FOLDER_PATH}{typeof(Buildings).Name}");
 
         public static StartResourcesData StartResourcesData => _startResourcesData ??= Resources.
             Load<StartResourcesData>($"{GAMEPLAY_DATAS_FOLDER_PATH}{typeof(StartResourcesData).Name}");
@@ -45,10 +49,16 @@ namespace LandsHeart
             Selection.activeObject = HumanImages;
         }
 
-        [MenuItem("Data/Gameplay/BuildingImages")]
-        public static void SelectBuildingImages()
+        [MenuItem("Data/Gameplay/HumanStatusesColors")]
+        public static void SelectHumanStatusesColors()
         {
-            Selection.activeObject = BuildingImages;
+            Selection.activeObject = HumanStatusesColors;
+        }
+
+        [MenuItem("Data/Gameplay/Buildings")]
+        public static void SelectBuildings()
+        {
+            Selection.activeObject = Buildings;
         }
 
         [MenuItem("Data/Gameplay/StartResourcesData")]

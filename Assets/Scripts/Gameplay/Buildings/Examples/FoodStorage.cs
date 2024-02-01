@@ -1,23 +1,12 @@
-using UnityEngine;
-
-
 namespace LandsHeart
 {
 	public sealed class FoodStorage : Building
 	{
-        #region Fields
+        #region Constructor
 
-        #endregion
-
-
-        #region Properties
-
-        public override BuildingsNames BuildingName => BuildingsNames.FoodStorage;
-
-        #endregion
-
-
-        #region Methods
+        public FoodStorage(BuildingData buildingData) : base(buildingData)
+        {
+        }
 
         #endregion
     }

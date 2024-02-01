@@ -1,23 +1,12 @@
-using UnityEngine;
-
-
 namespace LandsHeart
 {
 	public sealed class Market : Building
 	{
-        #region Fields
+        #region Constructor
 
-        #endregion
-
-
-        #region Properties
-
-        public override BuildingsNames BuildingName => BuildingsNames.Market;
-
-        #endregion
-
-
-        #region Methods
+        public Market(BuildingData buildingData) : base(buildingData)
+        {
+        }
 
         #endregion
     }

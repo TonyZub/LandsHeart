@@ -1,23 +1,12 @@
-using UnityEngine;
-
-
 namespace LandsHeart
 {
 	public sealed class TiltYard : Building
 	{
-        #region Fields
+        #region Constructor
 
-        #endregion
-
-
-        #region Properties
-
-        public override BuildingsNames BuildingName => BuildingsNames.TiltYard;
-
-        #endregion
-
-
-        #region Methods
+        public TiltYard(BuildingData buildingData) : base(buildingData)
+        {
+        }
 
         #endregion
     }

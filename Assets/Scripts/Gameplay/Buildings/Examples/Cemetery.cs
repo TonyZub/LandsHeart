@@ -1,23 +1,12 @@
-using UnityEngine;
-
-
 namespace LandsHeart
 {
 	public sealed class Cemetery : Building
 	{
-        #region Fields
+        #region Constructor
 
-        #endregion
-
-
-        #region Properties
-
-        public override BuildingsNames BuildingName => BuildingsNames.Cemetery;
-
-        #endregion
-
-
-        #region Methods
+        public Cemetery(BuildingData buildingData) : base(buildingData)
+        {
+        }
 
         #endregion
     }
