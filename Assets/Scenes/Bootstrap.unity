@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlobalController
       objectReference: {fileID: 0}
+    - target: {fileID: 2273334636468413299, guid: edee92c92b643fd41aefea25ab84e754, type: 3}
+      propertyPath: _loggingTypesEnabled
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6427864048353812658, guid: edee92c92b643fd41aefea25ab84e754, type: 3}
       propertyPath: m_RootOrder
       value: 0
