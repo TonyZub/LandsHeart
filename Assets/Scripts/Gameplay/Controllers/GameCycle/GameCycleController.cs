@@ -19,7 +19,7 @@ namespace LandsHeart
         #endregion
 
 
-        #region Constuctor
+        #region Constructor
 
         public GameCycleController()
         {

@@ -1,3 +1,6 @@
+using echo17.EndlessBook;
+
+
 namespace LandsHeart
 {
     public sealed class MainSceneState : BaseSceneState
@@ -23,6 +26,8 @@ namespace LandsHeart
             GlobalContext.Instance.RegisterDependency(new GameplayServices(), GlobalContext.DisposableTypes.Local);
             GlobalContext.Instance.RegisterDependency(new GameCycleController(), GlobalContext.DisposableTypes.Global);
             GlobalContext.Instance.RegisterDependency(new ObjectsMovementController(), GlobalContext.DisposableTypes.Local);
+            GlobalContext.Instance.RegisterDependency(new BuildingsBookController(ObjectFinder.FindObjectOfType<EndlessBook>(true)),
+                GlobalContext.DisposableTypes.Local);
             //GlobalContext.Instance.GetDependency<GlobalServices>().AudioService.ChangeMusic(MusicSoundNames.Lvl_1_music,
             //    SCENE_MUSIC_SWITCH_TIME);
             base.OnSceneLoadingComplete();

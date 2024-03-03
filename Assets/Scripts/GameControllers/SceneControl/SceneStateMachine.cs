@@ -31,7 +31,7 @@ namespace LandsHeart
         #endregion
 
 
-        #region Constuctor
+        #region Constructor
 
         public SceneStateMachine() : base()
         {

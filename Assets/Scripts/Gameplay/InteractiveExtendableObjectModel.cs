@@ -23,14 +23,12 @@ namespace LandsHeart
 
         private void SubscribeRightMouseClick()
         {
-            InputController.Instance.RightMouseDown += OnRightMouseDown;
-            InputController.Instance.RightMouseUp += OnRightMouseUp;
+            InputController.Instance.RightMouseStateChanged += OnRightMouseStateChanged;
         }
 
         private void UnsubscribeRightMouseClick()
         {
-            InputController.Instance.RightMouseDown -= OnRightMouseDown;
-            InputController.Instance.RightMouseUp -= OnRightMouseUp;
+            InputController.Instance.RightMouseStateChanged -= OnRightMouseStateChanged;
         }
 
         protected override void OnMouseEntered()
@@ -44,6 +42,18 @@ namespace LandsHeart
             base.OnMouseExited();
             UnsubscribeRightMouseClick();
             IsRightMouseOnHold = false;
+        }
+
+        protected virtual void OnRightMouseStateChanged(bool isPressed)
+        {
+            if (isPressed)
+            {
+                OnRightMouseDown();
+            }
+            else
+            {
+                OnRightMouseUp();
+            }
         }
 
         protected virtual void OnRightMouseDown()

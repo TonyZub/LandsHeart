@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 
 namespace LandsHeart
@@ -20,6 +21,7 @@ namespace LandsHeart
 
         [SerializeField] private LoggingTypes _loggingTypesEnabled;
 
+        private EventSystem _eventSystem;
         private GlobalContext _globalContext;
 
         #endregion
@@ -28,6 +30,7 @@ namespace LandsHeart
         #region Properties
 
         public LoggingTypes LoggingTypesEnabled => _loggingTypesEnabled;
+        public EventSystem EventSystem => _eventSystem;
         public GlobalContext GlobalContext => _globalContext;
 
         #endregion
@@ -40,6 +43,7 @@ namespace LandsHeart
             base.Initialize();
             InitDoTween();
             KeepAliveDuringGame();
+            GetEventSystem();
             CreateGlobalContext();
         }
 
@@ -87,6 +91,11 @@ namespace LandsHeart
         private void KeepAliveDuringGame()
         {
             DontDestroyOnLoad(this);
+        }
+
+        private void GetEventSystem()
+        {
+            _eventSystem = GetComponent<EventSystem>();
         }
 
         private void CreateGlobalContext()

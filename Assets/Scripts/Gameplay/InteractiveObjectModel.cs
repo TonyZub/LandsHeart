@@ -13,6 +13,7 @@ namespace LandsHeart
         public event Action<InteractiveObjectModel> MouseEntered;
         public event Action<InteractiveObjectModel> MouseExited;
         public event Action<InteractiveObjectModel> MouseDown;
+        public event Action<InteractiveObjectModel> MouseMove;
         public event Action<InteractiveObjectModel> MouseUp;
         public event Action<InteractiveObjectModel> MouseUpAsButton;
         public event Action<InteractiveObjectModel> Destroyed;
@@ -30,6 +31,7 @@ namespace LandsHeart
         #region Properties
 
         public Outlinable Outlinable { get; private set; }
+        public bool IsMouseInside { get; private set; }
         public bool IsOutlinableControlledByModel => _isOutlinableControlledByModel;
 
         #endregion
@@ -62,6 +64,11 @@ namespace LandsHeart
             OnMouseClicked();
         }
 
+        private void OnMouseDrag()
+        {
+            OnMouseMove();
+        }
+
         private void OnMouseExit()
         {
             OnMouseExited();
@@ -79,6 +86,7 @@ namespace LandsHeart
 
         protected virtual void OnMouseEntered()
         {
+            IsMouseInside = true;
             if (IsOutlinableControlledByModel) Outlinable.enabled = true;
             MouseEntered?.Invoke(this);
         }
@@ -86,6 +94,11 @@ namespace LandsHeart
         protected virtual void OnMousePressed()
         {
             MouseDown?.Invoke(this);
+        }
+
+        protected virtual void OnMouseMove()
+        {
+            MouseMove?.Invoke(this);
         }
 
         protected virtual void OnMouseReleased()
@@ -100,6 +113,7 @@ namespace LandsHeart
 
         protected virtual void OnMouseExited()
         {
+            IsMouseInside = false;
             if (IsOutlinableControlledByModel) Outlinable.enabled = false;
             MouseExited?.Invoke(this);
         }

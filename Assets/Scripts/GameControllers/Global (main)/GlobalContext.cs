@@ -34,7 +34,7 @@ namespace LandsHeart
         #endregion
 
 
-        #region Constuctor
+        #region Constructor
 
         public GlobalContext() : base()
         {

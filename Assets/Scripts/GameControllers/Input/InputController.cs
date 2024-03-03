@@ -8,20 +8,17 @@ namespace LandsHeart
     {
         #region Events
 
-        public event Action LeftMouseDown;
-        public event Action LeftMouseUp;
-        public event Action RightMouseDown;
-        public event Action RightMouseUp;
+        public event Action<bool> LeftMouseStateChanged;
+        public event Action<bool> RightMouseStateChanged;
+        public event Action EscapePressed;
 
         #endregion
 
 
         #region Fields
 
-        private bool _isLeftMouseDown;
-        private bool _isLeftMouseUp;
-        private bool _isRightMouseDown;
-        private bool _isRightMouseUp;
+        private bool _isLeftMousePressed;
+        private bool _isRightMousePressed;
 
         #endregion
 
@@ -30,51 +27,27 @@ namespace LandsHeart
 
         public Vector2 MousePosition => Input.mousePosition;
         public bool IsDisabled { get; private set; }
-        public bool IsLeftMouseDown
+        public bool IsLeftMousePressed
         {
-            get => _isLeftMouseDown;
+            get => _isLeftMousePressed;
             private set
             {
-                if(_isLeftMouseDown != value)
+                if(value !=  _isLeftMousePressed)
                 {
-                    _isLeftMouseDown = value;
-                    LeftMouseDown?.Invoke();
+                    _isLeftMousePressed = value;
+                    LeftMouseStateChanged?.Invoke(IsLeftMousePressed);
                 }
             }
         }
-        public bool IsLeftMouseUp
+        public bool IsRightMousePressed
         {
-            get => _isLeftMouseUp;
+            get => _isRightMousePressed;
             private set
             {
-                if(_isLeftMouseUp != value)
+                if (value != _isRightMousePressed)
                 {
-                    _isLeftMouseUp = value;
-                    LeftMouseUp?.Invoke();
-                }
-            }
-        }  
-        public bool IsRightMouseDown
-        {
-            get => _isRightMouseDown;
-            private set
-            {
-                if(_isRightMouseDown != value)
-                {
-                    _isRightMouseDown = value;
-                    RightMouseDown?.Invoke();
-                }
-            }
-        }
-        public bool IsRightMouseUp
-        {
-            get => _isRightMouseUp;
-            private set
-            {
-                if(_isRightMouseUp != value)
-                {
-                    _isRightMouseUp = value;
-                    RightMouseUp?.Invoke();
+                    _isRightMousePressed = value;
+                    RightMouseStateChanged?.Invoke(IsRightMousePressed);
                 }
             }
         }
@@ -107,10 +80,9 @@ namespace LandsHeart
         private void GetInput()
         {
             if (IsDisabled) return;
-            IsLeftMouseDown = Input.GetMouseButtonDown(0);
-            IsLeftMouseUp = Input.GetMouseButtonUp(0);
-            IsRightMouseDown = Input.GetMouseButtonDown(1);
-            IsRightMouseUp = Input.GetMouseButtonUp(1);
+            IsLeftMousePressed = Input.GetMouseButton(0);
+            IsRightMousePressed = Input.GetMouseButton(1);
+            if (Input.GetKeyDown(KeyCode.Escape)) EscapePressed?.Invoke();
         }
 
         public void DisableInput()
