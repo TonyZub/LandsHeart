@@ -12,6 +12,13 @@ namespace LandsHeart
         #endregion
 
 
+        #region Fields
+
+        private bool _isRightMouseClickSubscribed;
+
+        #endregion
+
+
         #region Properties
 
         public bool IsRightMouseOnHold { get ; private set; }
@@ -24,11 +31,16 @@ namespace LandsHeart
         private void SubscribeRightMouseClick()
         {
             InputController.Instance.RightMouseStateChanged += OnRightMouseStateChanged;
+            _isRightMouseClickSubscribed = true;
         }
 
         private void UnsubscribeRightMouseClick()
         {
+            if (!_isRightMouseClickSubscribed)
+                return;
+
             InputController.Instance.RightMouseStateChanged -= OnRightMouseStateChanged;
+            _isRightMouseClickSubscribed = false;
         }
 
         protected override void OnMouseEntered()

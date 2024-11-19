@@ -66,7 +66,8 @@ namespace LandsHeart
 			{
 				SubscribeObject(item);
             }
-		}
+            GlobalController.Instance.OnUpdate += OnUpdate;
+        }
 
 		private void UnsubscribeEvents()
 		{
@@ -74,6 +75,7 @@ namespace LandsHeart
             {
                 UnsubscribeObject(item);
             }
+            GlobalController.Instance.OnUpdate -= OnUpdate;
         }
 
 		private void SubscribeObject(InteractiveObjectModel obj)
@@ -83,7 +85,6 @@ namespace LandsHeart
             obj.MouseDown += OnObjectMouseDown;
             obj.MouseUp += OnObjectMouseUp;
 			obj.Destroyed += OnObjectDestroyed;
-			GlobalController.Instance.OnUpdate += OnUpdate;
 		}
 
 		private void UnsubscribeObject(InteractiveObjectModel obj)
@@ -93,7 +94,6 @@ namespace LandsHeart
             obj.MouseDown -= OnObjectMouseDown;
             obj.MouseUp -= OnObjectMouseUp;
             obj.Destroyed -= OnObjectDestroyed;
-            GlobalController.Instance.OnUpdate -= OnUpdate;
         }
 
 		private void OnObjectMouseEnter(InteractiveObjectModel obj)

@@ -17,6 +17,7 @@ namespace LandsHeart
         #region Fields
 
         private static T _instance;
+        private bool _isInstance;
 
         #endregion
 
@@ -31,15 +32,8 @@ namespace LandsHeart
 
         #region UnityMethods
 
-        private void Awake()
-        {
-            Initialize();
-        }
-      
-        private void OnDestroy()
-        {
-            Dispose();
-        }
+        private void Awake() => Initialize();
+        private void OnDestroy() => Dispose();
 
         #endregion
 
@@ -51,6 +45,7 @@ namespace LandsHeart
             PreventDoubleInitialization();
             TrySetInstance();
             IsInitialized = true;
+            _isInstance = true;
             OnAfterInit?.Invoke();
         }
 
@@ -72,6 +67,9 @@ namespace LandsHeart
         protected virtual void Dispose()
         {
             OnDispose?.Invoke();
+
+            if (_isInstance)
+                _instance = null;
         }
 
         #endregion

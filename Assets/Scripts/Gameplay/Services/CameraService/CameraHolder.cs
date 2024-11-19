@@ -25,6 +25,6 @@ namespace LandsHeart
 		public CinemachineVirtualCamera TableDownCamera => _tableDownCamera;
 		public CinemachineVirtualCamera BuildingBookCamera => _buildingBookCamera;
 
-        #endregion
+		#endregion
     }
 }

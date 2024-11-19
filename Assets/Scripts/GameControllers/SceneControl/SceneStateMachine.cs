@@ -126,8 +126,8 @@ namespace LandsHeart
 
         protected override void Dispose()
         {
-            base.Dispose();
             CurrentSceneState?.ExitState();
+            base.Dispose();
         }
 
 #endregion

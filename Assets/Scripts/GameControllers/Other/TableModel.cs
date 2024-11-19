@@ -12,6 +12,8 @@ namespace LandsHeart
 		[SerializeField] private MeshRenderer _mainMapRenderer;
 		[SerializeField] private MeshRenderer _wallMapRenderer;
 
+		private GlobalController _globalController;
+
 		#endregion
 
 
@@ -23,5 +25,5 @@ namespace LandsHeart
 		public MeshRenderer WallMapRenderer => _wallMapRenderer;
 
 		#endregion
-	}
+    }
 }

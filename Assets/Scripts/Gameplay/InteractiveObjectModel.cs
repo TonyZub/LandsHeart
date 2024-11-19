@@ -39,45 +39,15 @@ namespace LandsHeart
 
         #region UnityMethods
 
-        private void Awake()
-        {
-            Outlinable = GetComponent<Outlinable>();
-        }
+        private void Awake() => Outlinable = GetComponent<Outlinable>();
 
-        private void OnMouseEnter()
-        {
-            OnMouseEntered();
-        }
-
-        private void OnMouseDown()
-        {
-            OnMousePressed();
-        }
-
-        private void OnMouseUp()
-        {
-            OnMouseReleased();
-        }
-
-        private void OnMouseUpAsButton()
-        {
-            OnMouseClicked();
-        }
-
-        private void OnMouseDrag()
-        {
-            OnMouseMove();
-        }
-
-        private void OnMouseExit()
-        {
-            OnMouseExited();
-        }
-
-        private void OnDestroy()
-        {
-            OnDispose();
-        }
+        private void OnMouseEnter() => OnMouseEntered();
+        private void OnMouseDown() => OnMousePressed();
+        private void OnMouseUp() => OnMouseReleased();
+        private void OnMouseUpAsButton() => OnMouseClicked();
+        private void OnMouseDrag() => OnMouseMove();
+        private void OnMouseExit() => OnMouseExited();
+        private void OnDestroy() => OnDispose();
 
         #endregion
 

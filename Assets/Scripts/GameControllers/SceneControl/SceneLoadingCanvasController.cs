@@ -8,11 +8,11 @@ namespace LandsHeart
 	{
         #region Constants
 
-        public const float CANVAS_SHOWING_TIME = 0f;
+        public const float CANVAS_SHOWING_TIME = 0.5f;
 
         private const float MIN_CANVAS_ALPHA = 0f;
         private const float MAX_CANVAS_ALPHA = 1f;
-        private const float MIN_TIME_TO_LOAD_SCENE = 0f;
+        private const float MIN_TIME_TO_LOAD_SCENE = 1f;
 
         #endregion
 

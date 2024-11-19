@@ -1,10 +1,12 @@
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Zenject;
 
 
 namespace LandsHeart
 {
+    [RequireComponent(typeof(EventSystem))]
     public sealed class GlobalController : MonoSingleton<GlobalController>
     {
         #region Events
@@ -23,6 +25,7 @@ namespace LandsHeart
 
         private EventSystem _eventSystem;
         private GlobalContext _globalContext;
+        private DiContainer _diContainer;
 
         #endregion
 
@@ -38,6 +41,9 @@ namespace LandsHeart
 
         #region MonoSingleton
 
+        [Inject]
+        public void Construct(DiContainer container) => _diContainer = container;
+
         protected override void Initialize()
         {
             base.Initialize();
@@ -49,8 +55,8 @@ namespace LandsHeart
 
         protected override void Dispose()
         {
-            //TODO - manually dispose something if needed
             base.Dispose();
+            _globalContext.Dispose();
         }
 
         #endregion
@@ -58,62 +64,25 @@ namespace LandsHeart
 
         #region UnityMethods
 
-        private void Start()
-        {
-            OnStart?.Invoke();
-        }
-
-        private void Update()
-        {
-            OnUpdate?.Invoke();
-        }
-
-        private void FixedUpdate()
-        {
-            OnFixedUpdate?.Invoke();
-        }
-
-        private void LateUpdate()
-        {
-            OnLateUpdate?.Invoke();
-        }
+        private void Start() => OnStart?.Invoke();
+        private void Update() => OnUpdate?.Invoke();
+        private void FixedUpdate() => OnFixedUpdate?.Invoke();
+        private void LateUpdate() => OnLateUpdate?.Invoke();
 
         #endregion
 
 
         #region Methods
 
-        private void InitDoTween()
-        {
-            DG.Tweening.DOTween.Init(false, false);
-        }
-
-        private void KeepAliveDuringGame()
-        {
-            DontDestroyOnLoad(this);
-        }
-
-        private void GetEventSystem()
-        {
-            _eventSystem = GetComponent<EventSystem>();
-        }
+        private void InitDoTween() => DG.Tweening.DOTween.Init(false, false);
+        private void KeepAliveDuringGame() => DontDestroyOnLoad(this);
+        private void GetEventSystem() => _eventSystem = GetComponent<EventSystem>();
 
         private void CreateGlobalContext()
         {
             _globalContext = new GlobalContext();
+            _globalContext.Construct(_diContainer);
         }
-
-#if UNITY_EDITOR
-
-        [ContextMenu(nameof(ClearSave))]
-        [NaughtyAttributes.Button("Clear saves", NaughtyAttributes.EButtonEnableMode.Editor)]
-        private void ClearSave()
-        {
-            SavingSystem.ClearSaveData();
-            Debug.Log("Saves were cleared");
-        }
-
-#endif
 
         #endregion
     }
