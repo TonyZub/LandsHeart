@@ -75,7 +75,7 @@ namespace LandsHeart
         #region Methods
 
         private void InitDoTween() => DG.Tweening.DOTween.Init(false, false);
-        private void KeepAliveDuringGame() => DontDestroyOnLoad(this);
+        private void KeepAliveDuringGame() => DontDestroyOnLoad(gameObject);
         private void GetEventSystem() => _eventSystem = GetComponent<EventSystem>();
 
         private void CreateGlobalContext()

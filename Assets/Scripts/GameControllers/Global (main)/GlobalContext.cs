@@ -75,6 +75,8 @@ namespace LandsHeart
             {
                 throw new ArgumentException($"type {typeof(T)} is missing in DI container");
             }
+
+            (_diContainer.Resolve<T>() as IDisposable)?.Dispose();
             _diContainer.Unbind<T>();
         }
 
