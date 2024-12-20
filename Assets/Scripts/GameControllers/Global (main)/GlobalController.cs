@@ -42,14 +42,17 @@ namespace LandsHeart
         #region MonoSingleton
 
         [Inject]
-        public void Construct(DiContainer container) => _diContainer = container;
+        public void Construct(DiContainer container, EventSystem eventSystem)
+        {
+            _diContainer = container;
+            _eventSystem = eventSystem;
+        }
 
         protected override void Initialize()
         {
             base.Initialize();
             InitDoTween();
             KeepAliveDuringGame();
-            GetEventSystem();
             CreateGlobalContext();
         }
 
@@ -76,7 +79,6 @@ namespace LandsHeart
 
         private void InitDoTween() => DG.Tweening.DOTween.Init(false, false);
         private void KeepAliveDuringGame() => DontDestroyOnLoad(gameObject);
-        private void GetEventSystem() => _eventSystem = GetComponent<EventSystem>();
 
         private void CreateGlobalContext()
         {
